@@ -19,30 +19,36 @@
 </head>
 
 <body>
+
 <nav id="mainNav" class="navbar navbar-expand-lg fixed-top navbar-light">
     <div class="container">
-
+        <!-- Логотип -->
         <a class="navbar-brand fw-bold" href="#">КУБАНОЧКА</a>
-
-        <button class="navbar-toggler border-0 shadow-none p-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Открыть меню">
+        
+        <!-- Кнопка гамбургер (исправленная) -->
+        <button class="navbar-toggler border-0 shadow-none p-2" type="button" 
+                data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Открыть меню">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+        
+        <!-- Меню -->
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                 <li class="nav-item"><a class="nav-link" href="#hero">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
                 <li class="nav-item"><a class="nav-link" href="#catalog">Каталог</a></li>
                 <li class="nav-item"><a class="nav-link" href="#partners">Партнёры</a></li>
-                <li class="nav-item"><a class="nav-link" href="#reviews">Отзывы/вопросы</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reviews">Отзывы</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
             </ul>
-
-         
+            
+            <!-- Кнопки: поиск + стать партнёром -->
             <div class="ms-lg-auto d-flex gap-2 mt-2 mt-lg-0">
-                <button class="btn search-btn-circle" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Поиск">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <!-- Кнопка поиска с новым классом -->
+                <button class="btn search-btn-circle" data-bs-toggle="modal" 
+                        data-bs-target="#searchModal" aria-label="Поиск по сайту">
+                    <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
                 <a href="#contact" class="btn btn-cta btn-sm px-4">Стать партнёром</a>
             </div>

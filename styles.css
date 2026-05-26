@@ -39,46 +39,36 @@ nav#mainNav .navbar-collapse button.btn.btn-outline-light:hover {
             
         }
 @media (max-width: 747px) {
-    
     .navbar-toggler {
         margin-left: 0 !important;
-        transform: translateX(-10px);
-    
-        .navbar .container {
-        padding-left: 10px;               
-        padding-right: 10px;
-    }
-    .navbar-toggler {
+        transform: none !important;
         position: relative;
-        left: -15px;                     
+        left: 0 !important;
     }
-    }
-
-
+    
     .navbar .container {
         padding-left: 15px;
         padding-right: 15px;
     }
+    
     .hero-content {
         text-align: left !important;
-        padding: 80px 20px 40px 20px;  
+        padding: 80px 20px 40px 20px;
     }
+    
     .hero-content .d-flex {
         justify-content: center !important;
         flex-wrap: wrap;
         gap: 15px;
     }
-   
-    .hero-badge {
-        display: inline-block;
-        margin-left: auto;
-        margin-right: auto;
-    }
+    
+    .hero-badge,
     .hero-content p {
         margin-left: auto;
         margin-right: auto;
     }
 }
+
 
 
         h1, h2, h3, h4, h5, h6 { font-weight: 700; color: var(--color-dark); }
@@ -191,28 +181,104 @@ nav#mainNav .navbar-collapse button.btn.btn-outline-light:hover {
     overflow: hidden;
 }
 
+
+.search-btn-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transition: all 0.3s ease;
+    padding: 0;
+    border: 2px solid;
+    flex-shrink: 0;
+}
+
+/* СОСТОЯНИЕ 1: На главной (меню прозрачное) — белая обводка */
+.navbar:not(.scrolled) .search-btn-circle {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+}
+
+/* СОСТОЯНИЕ 2: При прокрутке (меню белое) — чёрная обводка */
+.navbar.scrolled .search-btn-circle {
+    border-color: rgba(0, 0, 0, 0.3);
+    color: #333333;
+}
+
+/* СОСТОЯНИЕ 3: При наведении — бледно-белый фон */
+.search-btn-circle:hover {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #000;
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   МОБИЛЬНАЯ АДАПТАЦИЯ НАВИГАЦИИ
+   ======================================== */
+
 @media (max-width: 991.98px) {
+    /* Выравнивание меню слева */
     .navbar-collapse {
         text-align: left !important;
     }
+    
     .navbar-nav {
         align-items: flex-start !important;
     }
+    
     .nav-item {
         width: 100%;
         text-align: left;
     }
+    
     .nav-link {
         text-align: left !important;
         padding-left: 0 !important;
+        padding: 0.75rem 0 !important;
     }
-    /* Выравнивание блока с поиском и кнопкой "Стать партнёром" */
+    
+    /* Блок с кнопками под ссылками */
     .navbar-collapse .d-flex {
         justify-content: flex-start !important;
         margin-left: 0 !important;
         margin-top: 1rem;
+        padding-left: 0.5rem;
+    }
+    
+    /* Кнопка гамбургера: позиционирование */
+    .navbar-toggler {
+        position: relative;
+        z-index: 1050;
+        margin-left: 0 !important;
+        padding: 0.5rem !important;
+    }
+    
+    /* Контейнер: отступы */
+    .navbar .container {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
+
+#stats .col-6 {
+    display: flex;              
+}
+
+.stat-box {
+    width: 100%;                
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 15px;
+    min-height: 170px;        
+}
+
 
 @media (max-width: 768px) {
     .stat-box {
@@ -424,39 +490,3 @@ nav#mainNav .navbar-collapse button.btn.btn-outline-light:hover {
             .section-title { font-size: 2.1rem; }
             .stat-number { font-size: 2.2rem; }
         }
-
-        /* 1. Базовые настройки круглой кнопки */
-.search-btn-circle {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent; /* Прозрачный фон по умолчанию */
-    transition: all 0.3s ease; /* Плавное изменение цвета за 0.3 сек */
-    padding: 0;
-    border: 2px solid; /* Толщина рамки */
-}
-
-/* 2. СОСТОЯНИЕ: На главной странице (фон меню прозрачный/цветной) */
-/* Делаем рамку и иконку белыми */
-.navbar:not(.scrolled) .search-btn-circle {
-    border-color: rgba(255, 255, 255, 0.5); /* Полупрозрачная белая рамка */
-    color: #ffffff; /* Белая иконка лупы */
-}
-
-/* 3. СОСТОЯНИЕ: При прокрутке (фон меню стал белым) */
-/* Делаем рамку и иконку черными */
-.navbar.scrolled .search-btn-circle {
-    border-color: rgba(0, 0, 0, 0.2); /* Легкая темная рамка */
-    color: #333333; /* Темная иконка лупы */
-}
-
-/* 4. СОСТОЯНИЕ: При наведении мыши (HOVER) */
-/* Фон становится бледно-белым */
-.search-btn-circle:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* Бледно-белый фон */
-    color: #000; /* Иконка становится черной для контраста */
-    border-color: #fff;
-}
